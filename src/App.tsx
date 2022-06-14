@@ -9,6 +9,8 @@ function App() {
     dropdown: boolean;
     region: "All" | "Africa" | "Americas" | "Asia" | "Europe" | "Oceania";
   }>({ dropdown: false, region: "All" });
+  const [search, setSearch] = useState<string>("");
+  const [darkMode, setDarkMode] = useState(false);
   function fetchData() {
     fetch("https://restcountries.com/v3.1/all")
       .then((res) => res.json())
@@ -37,6 +39,8 @@ function App() {
           <input
             placeholder="Search for a country..."
             className="searchInput input"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
           />
           <div className="selectWrapper input">
             <span
@@ -95,6 +99,13 @@ function App() {
           {countries
             .filter((country) =>
               filter.region === "All" ? true : country.region === filter.region
+            )
+            .filter((country) =>
+              search
+                ? country.name.common
+                    .toLowerCase()
+                    .includes(search.toLowerCase())
+                : true
             )
             .map((country: Country) => (
               <Card
