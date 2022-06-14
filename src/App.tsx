@@ -15,7 +15,6 @@ function App() {
   useEffect(() => {
     fetchData();
   }, []);
-  console.log(countries);
   return (
     <main className="App">
       <div className="contentContainer">
