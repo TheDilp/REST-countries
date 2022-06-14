@@ -1,42 +1,73 @@
 .App {
-  text-align: center;
-}
+  height: 100vh;
+  width: 100vw;
+  background-image: url("./desktop-design-home-light.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-content: flex-start;
 }
 
-.App-link {
-  color: #61dafb;
+.contentContainer {
+  /* opacity: 0; */
+  /* background-color: blanchedalmond; */
+  width: 68.5%;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.titleBar {
+  width: 100%;
+  box-shadow: 0 0.15rem 0.15rem rgba(211, 211, 211, 0.254);
+  opacity: 1;
+  height: 4.5rem;
+  background-color: bisque;
 }
 
-button {
-  font-size: calc(10px + 2vmin);
+.inputBar {
+  width: 100%;
+}
+
+.allCardsContainer {
+  margin-top: 7.25rem;
+  width: 100%;
+  padding: 0 1.75rem;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.cardContainer {
+  display: flex;
+  justify-content: center;
+  width: 18rem;
+  height: 20rem;
+}
+
+.card {
+  opacity: 0;
+  background-color: blue;
+  border-radius: 0.35rem;
+  height: 96.5%;
+  width: 84%;
+  overflow: hidden;
+}
+
+.card .cardImg {
+  width: 100%;
+  height: 48%;
+}
+
+.card .cardImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card .cardText {
+  height: 12rem
 }
