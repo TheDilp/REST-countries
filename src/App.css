@@ -23,7 +23,7 @@
 }
 
 .contentContainer {
-  opacity: 0;
+  /* opacity: 0; */
   background-color: var(--very-light-gray);
   width: 68.5%;
   display: flex;
@@ -36,6 +36,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  background-color: white;
   box-shadow: 0 0.15rem 0.25rem rgba(211, 211, 211, 0.254);
   opacity: 1;
   height: 4.5rem;
@@ -53,8 +54,8 @@
   justify-content: space-between;
 
   color: var(--very-dark-blue);
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 800;
 }
 
 .inputContainer {
@@ -67,20 +68,76 @@
   align-items: center;
 }
 
+.inputContainer .input {
+  border: none;
+  border-radius: 0.35rem;
+  box-shadow: 0 0rem 0.5rem rgba(211, 211, 211, 0.35);
+  background-color: white;
+
+}
+
 .inputContainer .searchInput {
   width: 31.5%;
   padding-top: 1rem;
   padding-bottom: 1rem;
   padding-left: 4.2rem;
   font-family: var(--font-family);
-  border: none;
-  border-radius: 0.35rem;
-  box-shadow: 0 0.15rem 0.5rem rgba(211, 211, 211, 0.35);
+  font-size: 13px;
+
 }
 
 .inputContainer .searchIcon {
   position: absolute;
   margin-left: 1.8rem;
+}
+
+
+.selectWrapper {
+  width: 15.5%;
+  padding: 0rem;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  position: relative;
+}
+
+.inputContainer .regionFilter {
+  width: 63%;
+  border: none;
+  padding: 1rem 1.25rem;
+  appearance: none;
+  user-select: none;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+
+.inputContainer .regionFilterOptions {
+  margin-bottom: 0;
+  width: 100%;
+  position: absolute;
+  top: 75%;
+  list-style: none;
+  padding-left: 0rem;
+  display: flex;
+  height: 9.7rem;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 0.6285rem;
+}
+
+.inputContainer .regionFilterOptions li {
+  cursor: pointer;
+  user-select: none;
+  width: 100%;
+  align-items: center;
+  padding-left: 1.25rem;
+  font-size: 12px;
+  font-weight: 600;
+
 }
 
 .allCardsContainer {
@@ -106,6 +163,8 @@
   width: 84%;
   overflow: hidden;
   box-shadow: 0rem 0rem 0.75rem rgba(211, 211, 211, 0.275);
+  background-color: white;
+
 }
 
 .card .cardImg {
@@ -133,19 +192,15 @@
 }
 
 .card .cardText .cardDetailsContainer {
-  /* opacity: 0; */
   display: flex;
   flex-wrap: wrap;
   margin-top: 0.85rem;
   row-gap: 0.4rem;
-  /* flex-direction: column; */
-  /* align-content: flex-end; */
-  /* justify-content: space-around; */
-  /* padding: 1.1rem 0; */
+
 }
 
 .card .cardText .detailTextTitle {
-  font-weight: 600;
+  font-weight: 800;
   color: var(--very-dark-blue);
   margin-right: 0.2rem;
 

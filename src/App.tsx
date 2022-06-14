@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
-import { IoMoonOutline, IoSearch } from "react-icons/io5";
+import { IoChevronDown, IoMoonOutline, IoSearch } from "react-icons/io5";
 import "./App.css";
 import Card from "./components/Card";
 import { Country } from "../custom-types";
 function App() {
   const [countries, setCountries] = useState<[]>([]);
+  const [filter, setFilter] = useState<
+    boolean | "Africa" | "America" | "Asia" | "Europe" | "Oceania"
+  >(false);
   function fetchData() {
     fetch("https://restcountries.com/v3.1/all")
       .then((res) => res.json())
@@ -29,12 +32,30 @@ function App() {
           </div>
         </div>
         <div className="inputContainer">
-          <IoSearch className="searchIcon"/>
+          <IoSearch className="searchIcon" />
           <input
             placeholder="Search for a country..."
-            className="searchInput"
+            className="searchInput input"
           />
-          <select></select>
+          <div className="selectWrapper input">
+            <span
+              className="regionFilter "
+              placeholder="Filter by Region"
+              onClick={() => setFilter(!filter)}
+            >
+              Filter by Region
+            </span>
+            <IoChevronDown fontSize={12} fontWeight={600} />
+            {filter && (
+              <ul className="regionFilterOptions input">
+                <li>Africa</li>
+                <li>America</li>
+                <li>Asia</li>
+                <li>Europe</li>
+                <li>Oceania</li>
+              </ul>
+            )}
+          </div>
         </div>
         <div className="allCardsContainer">
           {countries.map((country: Country) => (
