@@ -10,7 +10,7 @@ function App() {
     region: "All" | "Africa" | "Americas" | "Asia" | "Europe" | "Oceania";
   }>({ dropdown: false, region: "All" });
   const [search, setSearch] = useState<string>("");
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState("light");
   function fetchData() {
     fetch("https://restcountries.com/v3.1/all")
       .then((res) => res.json())
@@ -23,11 +23,16 @@ function App() {
     fetchData();
   }, []);
   return (
-    <main className="App">
+    <main className="App" id={darkMode}>
       <div className="contentContainer">
         <div className="titleBar">
           <h2 className="appTitle">Where in the world?</h2>
-          <div className="darkMode">
+          <div
+            className="darkMode"
+            onClick={() =>
+              setDarkMode((curr) => (curr === "light" ? "dark" : "light"))
+            }
+          >
             <span className="darkModeIcon">
               <IoMoonOutline size={16} fontWeight={600} />
             </span>
@@ -35,7 +40,10 @@ function App() {
           </div>
         </div>
         <div className="inputContainer">
-          <IoSearch className="searchIcon" />
+          <IoSearch
+            className="searchIcon"
+            color={darkMode === "light" ? "black" : "white"}
+          />
           <input
             placeholder="Search for a country..."
             className="searchInput input"
