@@ -4,10 +4,11 @@ import "./App.css";
 import Card from "./components/Card";
 import { Country } from "../custom-types";
 function App() {
-  const [countries, setCountries] = useState<[]>([]);
-  const [filter, setFilter] = useState<
-    boolean | "Africa" | "America" | "Asia" | "Europe" | "Oceania"
-  >(false);
+  const [countries, setCountries] = useState<Country[]>([]);
+  const [filter, setFilter] = useState<{
+    dropdown: boolean;
+    region: "All" | "Africa" | "Americas" | "Asia" | "Europe" | "Oceania";
+  }>({ dropdown: false, region: "All" });
   function fetchData() {
     fetch("https://restcountries.com/v3.1/all")
       .then((res) => res.json())
@@ -41,34 +42,71 @@ function App() {
             <span
               className="regionFilter "
               placeholder="Filter by Region"
-              onClick={() => setFilter(!filter)}
+              onClick={() => setFilter({ ...filter, dropdown: true })}
             >
-              Filter by Region
+              {filter.region === "All" ? "Filter by Region" : filter.region}
             </span>
             <IoChevronDown fontSize={12} fontWeight={600} />
-            {filter && (
+            {filter.dropdown && (
               <ul className="regionFilterOptions input">
-                <li>Africa</li>
-                <li>America</li>
-                <li>Asia</li>
-                <li>Europe</li>
-                <li>Oceania</li>
+                <li
+                  onClick={() => setFilter({ dropdown: false, region: "All" })}
+                >
+                  All
+                </li>
+                <li
+                  onClick={() =>
+                    setFilter({ dropdown: false, region: "Africa" })
+                  }
+                >
+                  Africa
+                </li>
+                <li
+                  onClick={() =>
+                    setFilter({ dropdown: false, region: "Americas" })
+                  }
+                >
+                  Americas
+                </li>
+                <li
+                  onClick={() => setFilter({ dropdown: false, region: "Asia" })}
+                >
+                  Asia
+                </li>
+                <li
+                  onClick={() =>
+                    setFilter({ dropdown: false, region: "Europe" })
+                  }
+                >
+                  Europe
+                </li>
+                <li
+                  onClick={() =>
+                    setFilter({ dropdown: false, region: "Oceania" })
+                  }
+                >
+                  Oceania
+                </li>
               </ul>
             )}
           </div>
         </div>
         <div className="allCardsContainer">
-          {countries.map((country: Country) => (
-            <Card
-              key={country.fifa}
-              name={country.name}
-              region={country.region}
-              population={country.population}
-              capital={country.capital}
-              flags={country.flags}
-              fifa={country.fifa}
-            />
-          ))}
+          {countries
+            .filter((country) =>
+              filter.region === "All" ? true : country.region === filter.region
+            )
+            .map((country: Country) => (
+              <Card
+                key={country.fifa}
+                name={country.name}
+                region={country.region}
+                population={country.population}
+                capital={country.capital}
+                flags={country.flags}
+                fifa={country.fifa}
+              />
+            ))}
         </div>
       </div>
     </main>

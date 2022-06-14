@@ -11,7 +11,7 @@
 .App {
   height: 100vh;
   width: 100vw;
-  background-image: url("./desktop-design-home-light.jpg");
+  /* background-image: url("./desktop-design-home-light.jpg"); */
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
