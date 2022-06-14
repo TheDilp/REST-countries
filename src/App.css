@@ -23,10 +23,11 @@
 }
 
 .contentContainer {
-  /* opacity: 0; */
+  opacity: 0;
   background-color: var(--very-light-gray);
   width: 68.5%;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
@@ -35,14 +36,13 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  box-shadow: 0 0.15rem 0.15rem rgba(211, 211, 211, 0.254);
+  box-shadow: 0 0.15rem 0.25rem rgba(211, 211, 211, 0.254);
   opacity: 1;
   height: 4.5rem;
   padding: 0 4.5rem;
 }
 
 .titleBar .appTitle {
-  /* margin-top: 1.25rem; */
   font-size: 22px;
 }
 
@@ -55,19 +55,36 @@
   color: var(--very-dark-blue);
   font-size: 15px;
   font-weight: 600;
-  text-shadow: 0 0.15rem 0.25rem rgba(211, 211, 211, 1);
 }
 
-.titleBar .darkMode .darkModeIcon {
-  /* margin: 0 0.85rem 0 0.2rem; */
-}
-
-.inputBar {
+.inputContainer {
   width: 100%;
+  padding: 0 4.5rem;
+  margin-top: 2.85rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.inputContainer .searchInput {
+  width: 31.5%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 4.2rem;
+  font-family: var(--font-family);
+  border: none;
+  border-radius: 0.35rem;
+  box-shadow: 0 0.15rem 0.5rem rgba(211, 211, 211, 0.35);
+}
+
+.inputContainer .searchIcon {
+  position: absolute;
+  margin-left: 1.8rem;
 }
 
 .allCardsContainer {
-  margin-top: 7.25rem;
+  margin-top: 2.75rem;
   width: 100%;
   padding: 0 1.75rem;
   display: flex;
@@ -88,7 +105,7 @@
   height: 96.5%;
   width: 84%;
   overflow: hidden;
-  box-shadow: 0rem 0rem 0.5rem rgba(211, 211, 211, 0.275);
+  box-shadow: 0rem 0rem 0.75rem rgba(211, 211, 211, 0.275);
 }
 
 .card .cardImg {

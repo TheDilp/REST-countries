@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { IoMoonOutline } from "react-icons/io5";
+import { IoMoonOutline, IoSearch } from "react-icons/io5";
 import "./App.css";
 import Card from "./components/Card";
 import { Country } from "../custom-types";
@@ -28,8 +28,12 @@ function App() {
             <span>Dark Mode</span>
           </div>
         </div>
-        <div className="inputBar">
-          <input placeholder="Search for a country" />
+        <div className="inputContainer">
+          <IoSearch className="searchIcon"/>
+          <input
+            placeholder="Search for a country..."
+            className="searchInput"
+          />
           <select></select>
         </div>
         <div className="allCardsContainer">
