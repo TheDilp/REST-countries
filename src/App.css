@@ -24,18 +24,42 @@
 
 .contentContainer {
   /* opacity: 0; */
-  /* background-color: var(--very-light-gray); */
+  background-color: var(--very-light-gray);
   width: 68.5%;
   display: flex;
   flex-wrap: wrap;
 }
 
 .titleBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
   box-shadow: 0 0.15rem 0.15rem rgba(211, 211, 211, 0.254);
   opacity: 1;
   height: 4.5rem;
-  background-color: bisque;
+  padding: 0 4.5rem;
+}
+
+.titleBar .appTitle {
+  /* margin-top: 1.25rem; */
+  font-size: 22px;
+}
+
+.titleBar .darkMode {
+  width: 6.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: var(--very-dark-blue);
+  font-size: 15px;
+  font-weight: 600;
+  text-shadow: 0 0.15rem 0.25rem rgba(211, 211, 211, 1);
+}
+
+.titleBar .darkMode .darkModeIcon {
+  /* margin: 0 0.85rem 0 0.2rem; */
 }
 
 .inputBar {
@@ -60,12 +84,11 @@
 }
 
 .card {
-  /* opacity: 0; */
-  /* background-color: blue; */
   border-radius: 0.35rem;
   height: 96.5%;
   width: 84%;
   overflow: hidden;
+  box-shadow: 0rem 0rem 0.5rem rgba(211, 211, 211, 0.275);
 }
 
 .card .cardImg {
@@ -87,6 +110,7 @@
 
 .card .cardText h4 {
   font-family: var(--font-family);
+  font-weight: 800;
   width: 100%;
   margin: 1.5rem 0 0 0rem;
 }
@@ -106,10 +130,12 @@
 .card .cardText .detailTextTitle {
   font-weight: 600;
   color: var(--very-dark-blue);
+  margin-right: 0.2rem;
 
 }
 
 .card .cardText .cardTextDetails {
   font-size: 12px;
+  font-weight: 300;
   width: 100%;
 }

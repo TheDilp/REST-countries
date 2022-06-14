@@ -18,7 +18,9 @@ export default function Card({
           <div className="cardDetailsContainer">
             <div className="cardTextDetails">
               <span className="detailTextTitle">Population:</span>
-              {population}
+              {new Intl.NumberFormat("en", {
+                maximumSignificantDigits: 3,
+              }).format(population)}
             </div>
             <div className="cardTextDetails">
               <span className="detailTextTitle">Region:</span>

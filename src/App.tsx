@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { IoMoonOutline } from "react-icons/io5";
 import "./App.css";
 import Card from "./components/Card";
 import { Country } from "../custom-types";
@@ -18,7 +19,15 @@ function App() {
   return (
     <main className="App">
       <div className="contentContainer">
-        <div className="titleBar">WHERE IN THE WORLD</div>
+        <div className="titleBar">
+          <h2 className="appTitle">Where in the world?</h2>
+          <div className="darkMode">
+            <span className="darkModeIcon">
+              <IoMoonOutline size={16} fontWeight={600} />
+            </span>
+            <span>Dark Mode</span>
+          </div>
+        </div>
         <div className="inputBar">
           <input placeholder="Search for a country" />
           <select></select>
