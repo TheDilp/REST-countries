@@ -9,16 +9,56 @@
 }
 
 body {
+  margin: 0;
+  padding: 0;
   font-family: var(--font-family);
 }
 
 .App {
-  height: 100vh;
-  width: 100vw;
+  /* height: 100vh; */
+  width: 100%;
   /* background-image: url("./desktop-design-home-light.jpg"); */
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  background-color: var(--very-light-gray);
+}
+
+#dark {
+  background-color: var(--very-dark-blue-bg);
+}
+
+#dark .titleBar {
+  background-color: var(--dark-blue);
+  box-shadow: 0 0 0.35rem black;
+}
+
+#dark .titleBar h1 {
+  color: white;
+}
+
+#dark .titleBar .darkMode {
+  color: white;
+}
+
+#dark .input {
+  color: white;
+  background-color: var(--dark-blue);
+  box-shadow: 0 0 0.35rem black;
+}
+
+#dark .regionFilter {
+  color: white;
+}
+
+#dark ::placeholder {
+  color: white;
+}
+
+#dark .card {
+  background-color: var(--dark-blue);
+  color: white;
+  box-shadow: 0 0 0.5rem black;
 }
 
 .contentContainer {
@@ -52,6 +92,7 @@ body {
   width: 6.75rem;
   color: var(--very-dark-blue-text);
   font-weight: 600;
+  cursor: pointer;
 }
 
 .inputContainer {
@@ -86,6 +127,7 @@ body {
   padding: 0 1.5rem;
   background-color: white;
   position: relative;
+  cursor: pointer;
 }
 
 .selectWrapper .regionFilter {
@@ -185,4 +227,11 @@ body {
 .card .detailTextTitle {
   font-weight: 600;
   margin-right: 0.25rem;
+}
+
+@media screen and (min-width: 1441px) {
+  .allCardsContainer {
+    column-gap: 6.61rem;
+
+  }
 }
