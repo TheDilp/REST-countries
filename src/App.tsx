@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
 import { IoChevronDown, IoMoonOutline, IoSearch } from "react-icons/io5";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Card from "./components/Card";
-import { Country } from "../custom-types";
+import { Country, Filter } from "../custom-types";
+import Inputs from "./components/Inputs";
 function App() {
   const [countries, setCountries] = useState<Country[]>([]);
-  const [filter, setFilter] = useState<{
-    dropdown: boolean;
-    region: "All" | "Africa" | "Americas" | "Asia" | "Europe" | "Oceania";
-  }>({ dropdown: false, region: "All" });
+  const [filter, setFilter] = useState<Filter>({
+    dropdown: false,
+    region: "All",
+  });
   const [search, setSearch] = useState<string>("");
   const [darkMode, setDarkMode] = useState("light");
   function fetchData() {
@@ -26,7 +28,7 @@ function App() {
     <main className="App" id={darkMode}>
       <div className="contentContainer">
         <div className="titleBar">
-          <h2 className="appTitle">Where in the world?</h2>
+          <h1 className="appTitle">Where in the world?</h1>
           <div
             className="darkMode"
             onClick={() =>
@@ -39,71 +41,23 @@ function App() {
             <span>Dark Mode</span>
           </div>
         </div>
-        <div className="inputContainer">
-          <IoSearch
-            className="searchIcon"
-            color={darkMode === "light" ? "black" : "white"}
-          />
-          <input
-            placeholder="Search for a country..."
-            className="searchInput input"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-          <div className="selectWrapper input">
-            <span
-              className="regionFilter "
-              placeholder="Filter by Region"
-              onClick={() => setFilter({ ...filter, dropdown: true })}
-            >
-              {filter.region === "All" ? "Filter by Region" : filter.region}
-            </span>
-            <IoChevronDown fontSize={12} fontWeight={600} />
-            {filter.dropdown && (
-              <ul className="regionFilterOptions input">
-                <li
-                  onClick={() => setFilter({ dropdown: false, region: "All" })}
-                >
-                  All
-                </li>
-                <li
-                  onClick={() =>
-                    setFilter({ dropdown: false, region: "Africa" })
-                  }
-                >
-                  Africa
-                </li>
-                <li
-                  onClick={() =>
-                    setFilter({ dropdown: false, region: "Americas" })
-                  }
-                >
-                  Americas
-                </li>
-                <li
-                  onClick={() => setFilter({ dropdown: false, region: "Asia" })}
-                >
-                  Asia
-                </li>
-                <li
-                  onClick={() =>
-                    setFilter({ dropdown: false, region: "Europe" })
-                  }
-                >
-                  Europe
-                </li>
-                <li
-                  onClick={() =>
-                    setFilter({ dropdown: false, region: "Oceania" })
-                  }
-                >
-                  Oceania
-                </li>
-              </ul>
-            )}
-          </div>
-        </div>
-        <div className="allCardsContainer">
+        <BrowserRouter>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Inputs
+                  darkMode={darkMode}
+                  search={search}
+                  setSearch={setSearch}
+                  filter={filter}
+                  setFilter={setFilter}
+                />
+              }
+            />
+          </Routes>
+        </BrowserRouter>
+        {/* <div className="allCardsContainer">
           {countries
             .filter((country) =>
               filter.region === "All" ? true : country.region === filter.region
@@ -126,7 +80,7 @@ function App() {
                 fifa={country.fifa}
               />
             ))}
-        </div>
+        </div> */}
       </div>
     </main>
   );
