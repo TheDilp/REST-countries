@@ -8,17 +8,21 @@
 
 }
 
+body {
+  font-family: var(--font-family);
+}
+
 .App {
   height: 100vh;
   width: 100vw;
-  background-image: url("./desktop-design-home-light.jpg");
+  /* background-image: url("./desktop-design-home-light.jpg"); */
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
 }
 
 .contentContainer {
-  opacity: 0;
+  /* opacity: 0; */
   display: flex;
   flex-wrap: wrap;
   width: 100%;
@@ -114,4 +118,71 @@
 
 .selectWrapper .regionFilterOptions li {
   padding-left: 1.5rem;
+}
+
+.allCardsContainer {
+  margin-top: 3rem;
+  width: 100%;
+  padding: 0 5rem;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 4.65rem;
+  row-gap: 4.55rem;
+}
+
+.allCardsContainer .cardContainer {
+  width: 16.5rem;
+  height: 21rem;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  box-shadow: 0 0 0.35rem lightgray;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.card .cardImg {
+  height: 47.5%;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+}
+
+.card .cardImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card .cardText {
+  padding: 0 1.5rem;
+}
+
+.card .cardText h4 {
+  font-family: var(--font-family);
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 0;
+}
+
+.card .cardText .cardDetailsContainer {
+  font-size: 14px;
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 0.3rem;
+}
+
+.card .cardTextDetails {
+  width: 100%;
+  font-weight: 300;
+  letter-spacing: 0.01rem;
+}
+
+.card .detailTextTitle {
+  font-weight: 600;
+  margin-right: 0.25rem;
 }

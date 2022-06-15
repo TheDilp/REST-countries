@@ -57,7 +57,7 @@ function App() {
             />
           </Routes>
         </BrowserRouter>
-        {/* <div className="allCardsContainer">
+        <div className="allCardsContainer">
           {countries
             .filter((country) =>
               filter.region === "All" ? true : country.region === filter.region
@@ -80,7 +80,7 @@ function App() {
                 fifa={country.fifa}
               />
             ))}
-        </div> */}
+        </div>
       </div>
     </main>
   );
