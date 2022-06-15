@@ -15,7 +15,7 @@ body {
 }
 
 .App {
-  /* height: 100vh; */
+  min-height: 100vh;
   width: 100%;
   /* background-image: url("./desktop-design-home-light.jpg"); */
   background-repeat: no-repeat;
