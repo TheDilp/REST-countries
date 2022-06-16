@@ -6,6 +6,25 @@ export type Country = {
   flags: { svg: string };
   fifa: string;
 };
+export interface CountryDetails extends Country {
+  name: {
+    common: string;
+    nativeName: {
+      [key: string]: { official: string; common: string };
+    };
+  };
+  subregion: string;
+  tld: string[];
+  currencies: {
+    [key: string]: {
+      name: string;
+      symbol: string;
+    };
+  };
+  languages: {
+    [key: string]: string;
+  };
+}
 
 export type Filter = {
   dropdown: boolean;

@@ -63,7 +63,7 @@ function App() {
                 </>
               }
             />
-            <Route path="/:country" element={<CountryPage />}></Route>
+            <Route path="/:country_name" element={<CountryPage />}></Route>
           </Routes>
         </div>
       </BrowserRouter>
