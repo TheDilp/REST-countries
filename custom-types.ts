@@ -9,9 +9,7 @@ export type Country = {
 export interface CountryDetails extends Country {
   name: {
     common: string;
-    nativeName: {
-      [key: string]: { official: string; common: string };
-    };
+    official: string;
   };
   subregion: string;
   tld: string[];
