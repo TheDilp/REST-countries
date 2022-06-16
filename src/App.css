@@ -17,7 +17,7 @@ body {
 .App {
   min-height: 100vh;
   width: 100%;
-  /* background-image: url("./desktop-design-home-light.jpg"); */
+  background-image: url("./desktop-design-detail-light.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -177,6 +177,11 @@ body {
   height: 21rem;
 }
 
+.allCardsContainer .cardContainer .cardLink {
+  color: var(--very-dark-blue-text);
+  text-decoration: none;
+}
+
 .card {
   width: 100%;
   height: 100%;
@@ -184,6 +189,9 @@ body {
   box-shadow: 0 0 0.35rem lightgray;
   border-radius: 0.5rem;
   overflow: hidden;
+  text-decoration: none;
+  transition: transform 0.15s ease-in-out;
+
 }
 
 .card .cardImg {
@@ -191,6 +199,11 @@ body {
   width: 100%;
   display: flex;
   align-items: flex-start;
+}
+
+.card:hover {
+  transition: transform 0.15s ease-in-out;
+  transform: scale(1.05);
 }
 
 .card .cardImg img {

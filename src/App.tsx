@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { IoChevronDown, IoMoonOutline, IoSearch } from "react-icons/io5";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./App.css";
-import Card from "./components/Card";
+import { IoMoonOutline } from "react-icons/io5";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Country, Filter } from "../custom-types";
+import "./App.css";
+import AllCards from "./components/AllCards";
+import CountryPage from "./components/CountryPage";
 import Inputs from "./components/Inputs";
 function App() {
   const [countries, setCountries] = useState<Country[]>([]);
@@ -26,62 +27,46 @@ function App() {
   }, []);
   return (
     <main className="App" id={darkMode}>
-      <div className="contentContainer">
-        <div className="titleBar">
-          <h1 className="appTitle">Where in the world?</h1>
-          <div
-            className="darkMode"
-            onClick={() =>
-              setDarkMode((curr) => (curr === "light" ? "dark" : "light"))
-            }
-          >
-            <span className="darkModeIcon">
-              <IoMoonOutline size={16} fontWeight={600} />
-            </span>
-            <span>Dark Mode</span>
+      <BrowserRouter>
+        <div className="contentContainer">
+          <div className="titleBar">
+            <h1 className="appTitle">Where in the world?</h1>
+            <div
+              className="darkMode"
+              onClick={() =>
+                setDarkMode((curr) => (curr === "light" ? "dark" : "light"))
+              }
+            >
+              <span className="darkModeIcon">
+                <IoMoonOutline size={16} fontWeight={600} />
+              </span>
+              <span>Dark Mode</span>
+            </div>
           </div>
-        </div>
-        <BrowserRouter>
           <Routes>
             <Route
               path="/"
               element={
-                <Inputs
-                  darkMode={darkMode}
-                  search={search}
-                  setSearch={setSearch}
-                  filter={filter}
-                  setFilter={setFilter}
-                />
+                <>
+                  <Inputs
+                    darkMode={darkMode}
+                    search={search}
+                    setSearch={setSearch}
+                    filter={filter}
+                    setFilter={setFilter}
+                  />
+                  <AllCards
+                    countries={countries}
+                    filter={filter}
+                    search={search}
+                  />
+                </>
               }
             />
+            <Route path="/:country" element={<CountryPage />}></Route>
           </Routes>
-        </BrowserRouter>
-        <div className="allCardsContainer">
-          {countries
-            .filter((country) =>
-              filter.region === "All" ? true : country.region === filter.region
-            )
-            .filter((country) =>
-              search
-                ? country.name.common
-                    .toLowerCase()
-                    .includes(search.toLowerCase())
-                : true
-            )
-            .map((country: Country) => (
-              <Card
-                key={country.fifa}
-                name={country.name}
-                region={country.region}
-                population={country.population}
-                capital={country.capital}
-                flags={country.flags}
-                fifa={country.fifa}
-              />
-            ))}
         </div>
-      </div>
+      </BrowserRouter>
     </main>
   );
 }
