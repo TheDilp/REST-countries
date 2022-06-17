@@ -48,23 +48,35 @@ export default function CountryPage({}: Props) {
                 </div>
                 <div>
                   <span className="detailsInfoTitle">Region:</span>
+                  {country.region}
                 </div>
                 <div>
                   <span className="detailsInfoTitle">Sub Region:</span>
+                  {country.subregion}
                 </div>
                 <div>
                   <span className="detailsInfoTitle">Capital:</span>
+                  {country.capital[0]}
                 </div>
               </div>
-              <div className="detailsInfoColumn">
+              <div className="detailsInfoColumn secondInfoColumn">
                 <div>
                   <span className="detailsInfoTitle">Top Level Domain:</span>
+                  {country.tld}
                 </div>
                 <div>
                   <span className="detailsInfoTitle">Currencies:</span>
+                  {Object.keys(country.currencies).map(
+                    (key) => country.currencies[key].name
+                  )}
                 </div>
                 <div>
                   <span className="detailsInfoTitle">Languages:</span>
+                  {Object.keys(country.languages).map((key, index) =>
+                    Object.keys(country.languages).length - 1 === index
+                      ? country.languages[key]
+                      : `${country.languages[key]}, `
+                  )}
                 </div>
               </div>
             </div>

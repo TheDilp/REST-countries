@@ -1,6 +1,4 @@
 .countryPageContainer {
-    /* opacity: 0; */
-    /* background-color: red; */
     display: flex;
     flex-wrap: wrap;
     row-gap: 4.5rem;
@@ -86,10 +84,28 @@
 }
 
 .detailsInfoColumn {
+    /* background-color: red; */
     display: flex;
     flex-wrap: wrap;
     row-gap: 0.65rem;
-    width: 50%;
+    width: 41%;
+}
+
+.secondInfoColumn {
+    width: 59%;
+    row-gap: 0;
+    height: min-content;
+    /* row-gap: 5rem; */
+}
+
+.secondInfoColumn div {
+    padding-left: 6.5rem;
+}
+
+.secondInfoColumn div:not(:first-child) {
+    padding-top: 0.75rem;
+    padding-bottom: 0rem;
+
 }
 
 .detailsInfoColumn div {
