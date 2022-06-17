@@ -37,31 +37,36 @@ export default function CountryPage({}: Props) {
           <div className="countryDetails">
             <h2>{country.name.common}</h2>
             <div className="countryDetailsInfo">
-              <div>
-                <span className="detailsInfoTitle">Native Name:</span>
-                {country.name.official}
+              <div className="detailsInfoColumn">
+                <div>
+                  <span className="detailsInfoTitle">Native Name:</span>
+                  {country.name.official}
+                </div>
+                <div>
+                  <span className="detailsInfoTitle">Population:</span>
+                  {country.population}
+                </div>
+                <div>
+                  <span className="detailsInfoTitle">Region:</span>
+                </div>
+                <div>
+                  <span className="detailsInfoTitle">Sub Region:</span>
+                </div>
+                <div>
+                  <span className="detailsInfoTitle">Capital:</span>
+                </div>
               </div>
-              {/* <div>
-                <span className="detailsInfoTitle">Native Name:</span>
+              <div className="detailsInfoColumn">
+                <div>
+                  <span className="detailsInfoTitle">Top Level Domain:</span>
+                </div>
+                <div>
+                  <span className="detailsInfoTitle">Currencies:</span>
+                </div>
+                <div>
+                  <span className="detailsInfoTitle">Languages:</span>
+                </div>
               </div>
-              <div>
-                <span className="detailsInfoTitle">Native Name:</span>
-              </div>
-              <div>
-                <span className="detailsInfoTitle">Native Name:</span>
-              </div>
-              <div>
-                <span className="detailsInfoTitle">Native Name:</span>
-              </div>
-              <div>
-                <span className="detailsInfoTitle">Native Name:</span>
-              </div>
-              <div>
-                <span className="detailsInfoTitle">Native Name:</span>
-              </div>
-              <div>
-                <span className="detailsInfoTitle">Native Name:</span>
-              </div> */}
             </div>
           </div>
         </div>

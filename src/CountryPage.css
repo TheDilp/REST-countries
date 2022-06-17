@@ -43,11 +43,29 @@
 
 .detailsContainer {
     display: flex;
-    column-gap: 7.5rem;
     font-size: 21px;
+    column-gap: 7.5rem;
+}
+
+.countryFlagContainer {
+    opacity: 0.25;
+    width: 44.5rem;
+    height: 25rem;
+    box-shadow: 0 0 0.35rem rgb(211, 211, 211);
+}
+
+.countryFlagContainer img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.countryDetails {
+    width: 60%;
 }
 
 .countryDetails h2 {
+    width: 100%;
     margin-top: 2.5rem;
     margin-bottom: 1.75rem;
 }
@@ -60,14 +78,20 @@
     font-weight: 800;
 }
 
-.countryFlagContainer {
-    width: 35rem;
-    height: 25rem;
-    box-shadow: 0 0 0.35rem rgb(211, 211, 211);
+.countryDetailsInfo {
+    width: 100%;
+    display: flex;
+    row-gap: 2rem;
+    flex-wrap: wrap;
 }
 
-.countryFlagContainer img {
-    object-fit: cover;
-    height: 100%;
+.detailsInfoColumn {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 0.65rem;
+    width: 50%;
+}
+
+.detailsInfoColumn div {
     width: 100%;
 }
