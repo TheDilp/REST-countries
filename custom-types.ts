@@ -5,6 +5,7 @@ export type Country = {
   capital: string[];
   flags: { svg: string };
   fifa: string;
+  cca3: string;
 };
 export interface CountryDetails extends Country {
   name: {

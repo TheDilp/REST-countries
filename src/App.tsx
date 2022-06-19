@@ -25,6 +25,7 @@ function App() {
   useEffect(() => {
     fetchData();
   }, []);
+  console.log(countries);
   return (
     <main className="App" id={darkMode}>
       <BrowserRouter>
@@ -63,7 +64,10 @@ function App() {
                 </>
               }
             />
-            <Route path="/:country_name" element={<CountryPage />}></Route>
+            <Route
+              path="/:country_name"
+              element={<CountryPage countries={countries} />}
+            ></Route>
           </Routes>
         </div>
       </BrowserRouter>

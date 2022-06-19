@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { IoArrowBack } from "react-icons/io5";
-import { useParams } from "react-router-dom";
-import { CountryDetails } from "../../custom-types";
+import { Link, To, useParams } from "react-router-dom";
+import { Country, CountryDetails } from "../../custom-types";
 import "../CountryPage.css";
-type Props = {};
+type Props = {
+  countries: Country[];
+};
 
-export default function CountryPage({}: Props) {
+export default function CountryPage({ countries }: Props) {
   const [country, setCountry] = useState<CountryDetails | null>(null);
   const { country_name } = useParams();
   async function fetchData() {
@@ -18,15 +20,16 @@ export default function CountryPage({}: Props) {
   useEffect(() => {
     fetchData();
   }, [country_name]);
-  console.log(country);
   return (
     <div className="countryPageContainer">
       <div className="backButtonContainer">
         <div className="backButton">
-          <span className="backIcon">
-            <IoArrowBack fontSize={22} />
-          </span>
-          <span className="backText">Back</span>
+          <Link to={-1 as To} className="backButtonLink">
+            <span className="backIcon">
+              <IoArrowBack fontSize={22} />
+            </span>
+            <span className="backText">Back</span>
+          </Link>
         </div>
       </div>
       {country && (
@@ -39,45 +42,55 @@ export default function CountryPage({}: Props) {
             <div className="countryDetailsInfo">
               <div className="detailsInfoColumn">
                 <div>
-                  <span className="detailsInfoTitle">Native Name:</span>
+                  <span className="detailsInfoTitle">Native Name: </span>
                   {country.name.official}
                 </div>
                 <div>
-                  <span className="detailsInfoTitle">Population:</span>
+                  <span className="detailsInfoTitle">Population: </span>
                   {country.population}
                 </div>
                 <div>
-                  <span className="detailsInfoTitle">Region:</span>
+                  <span className="detailsInfoTitle">Region: </span>
                   {country.region}
                 </div>
                 <div>
-                  <span className="detailsInfoTitle">Sub Region:</span>
+                  <span className="detailsInfoTitle">Sub Region: </span>
                   {country.subregion}
                 </div>
                 <div>
-                  <span className="detailsInfoTitle">Capital:</span>
+                  <span className="detailsInfoTitle">Capital: </span>
                   {country.capital[0]}
                 </div>
               </div>
               <div className="detailsInfoColumn secondInfoColumn">
                 <div>
-                  <span className="detailsInfoTitle">Top Level Domain:</span>
+                  <span className="detailsInfoTitle">Top Level Domain: </span>
                   {country.tld}
                 </div>
                 <div>
-                  <span className="detailsInfoTitle">Currencies:</span>
+                  <span className="detailsInfoTitle">Currencies: </span>
                   {Object.keys(country.currencies).map(
                     (key) => country.currencies[key].name
                   )}
                 </div>
                 <div>
-                  <span className="detailsInfoTitle">Languages:</span>
+                  <span className="detailsInfoTitle">Languages: </span>
                   {Object.keys(country.languages).map((key, index) =>
                     Object.keys(country.languages).length - 1 === index
                       ? country.languages[key]
                       : `${country.languages[key]}, `
                   )}
                 </div>
+              </div>
+            </div>
+            <div className="borderCountries">
+              <span className="detailsInfoTitle">Border Countries: </span>
+              <div className="borderCodesContainer">
+                {country.borders.map((border) => (
+                  <div className="borderCountryCode" key={border}>
+                    {countries.find((c) => c.cca3 === border)?.name.common}
+                  </div>
+                ))}
               </div>
             </div>
           </div>
