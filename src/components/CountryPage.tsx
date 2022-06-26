@@ -8,7 +8,7 @@ type Props = {};
 export default function CountryPage({}: Props) {
   const [country, setCountry] = useState<CountryDetails | null>(null);
 
-  const { countries, selectedId } = useContext(CountryContext);
+  const { countries, selectedId, setSelectedId } = useContext(CountryContext);
 
   useEffect(() => {
     if (selectedId) {
@@ -23,7 +23,7 @@ export default function CountryPage({}: Props) {
     <div className="countryPageContainer">
       <div className="backButtonContainer">
         <div className="backButton">
-          <span className="backButtonLink">
+          <span className="backButtonLink" onClick={() => setSelectedId(null)}>
             <span className="backIcon">
               <IoArrowBack fontSize={22} />
             </span>
