@@ -1,22 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { IoChevronDown, IoSearch } from "react-icons/io5";
 import { Filter } from "../../custom-types";
+import { CountryContext } from "./countryContext";
 
 type Props = {
   darkMode: string;
-  search: string;
-  setSearch: (search: string) => void;
-  filter: Filter;
-  setFilter: (filter: Filter) => void;
 };
 
-export default function Inputs({
-  darkMode,
-  search,
-  setSearch,
-  filter,
-  setFilter,
-}: Props) {
+export default function Inputs({ darkMode }: Props) {
+  const { filter, setFilter, search, setSearch } = useContext(CountryContext);
   return (
     <div className="inputContainer">
       <div className="searchWrapper">

@@ -1,15 +1,17 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { IoArrowBack } from "react-icons/io5";
 import { Link, To, useParams } from "react-router-dom";
 import { Country, CountryDetails } from "../../custom-types";
 import "../CountryPage.css";
-type Props = {
-  countries: Country[];
-};
+import { CountryContext } from "./countryContext";
+type Props = {};
 
-export default function CountryPage({ countries }: Props) {
+export default function CountryPage({}: Props) {
   const [country, setCountry] = useState<CountryDetails | null>(null);
   const { country_name } = useParams();
+
+  const { countries } = useContext(CountryContext);
+
   async function fetchData() {
     const res = await fetch(
       `https://restcountries.com/v3.1/name/${country_name}`
@@ -20,6 +22,9 @@ export default function CountryPage({ countries }: Props) {
   useEffect(() => {
     fetchData();
   }, [country_name]);
+
+  console.log(country);
+
   return (
     <div className="countryPageContainer">
       <div className="backButtonContainer">
@@ -86,11 +91,12 @@ export default function CountryPage({ countries }: Props) {
             <div className="borderCountries">
               <span className="detailsInfoTitle">Border Countries: </span>
               <div className="borderCodesContainer">
-                {country.borders.map((border) => (
-                  <div className="borderCountryCode" key={border}>
-                    {countries.find((c) => c.cca3 === border)?.name.common}
-                  </div>
-                ))}
+                {country.borders &&
+                  country.borders.map((border) => (
+                    <div className="borderCountryCode" key={border}>
+                      {countries.find((c) => c.cca3 === border)?.name.common}
+                    </div>
+                  ))}
               </div>
             </div>
           </div>

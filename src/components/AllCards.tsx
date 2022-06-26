@@ -1,14 +1,12 @@
-import React from "react";
+import { useContext } from "react";
 import { Country, Filter } from "../../custom-types";
 import Card from "./Card";
+import { CountryContext } from "./countryContext";
 
-type Props = {
-  countries: Country[];
-  filter: Filter;
-  search: string;
-};
+type Props = {};
 
-export default function AllCards({ countries, filter, search }: Props) {
+export default function AllCards({}: Props) {
+  const { countries, filter, search } = useContext(CountryContext);
   return (
     <div className="allCardsContainer">
       {countries
@@ -22,13 +20,14 @@ export default function AllCards({ countries, filter, search }: Props) {
         )
         .map((country: Country) => (
           <Card
-            key={country.fifa}
+            key={country.cca3}
             name={country.name}
             region={country.region}
             population={country.population}
             capital={country.capital}
             flags={country.flags}
             fifa={country.fifa}
+            cca3={country.cca3}
           />
         ))}
     </div>

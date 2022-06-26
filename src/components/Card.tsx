@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { Country } from "../../custom-types";
 
 export default function Card({
@@ -10,7 +9,7 @@ export default function Card({
 }: Country) {
   return (
     <div className="cardContainer">
-      <Link to={name.common} className="cardLink">
+      <span className="cardLink">
         <div className="card">
           <div className="cardImg">
             <img src={flags.svg} alt={name.common} />
@@ -35,7 +34,7 @@ export default function Card({
             </div>
           </div>
         </div>
-      </Link>
+      </span>
     </div>
   );
 }
