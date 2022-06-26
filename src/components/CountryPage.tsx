@@ -63,7 +63,7 @@ export default function CountryPage({}: Props) {
               <div className="detailsInfoColumn secondInfoColumn">
                 <div>
                   <span className="detailsInfoTitle">Top Level Domain: </span>
-                  {country.tld}
+                  {`${country.tld}`}
                 </div>
                 <div>
                   <span className="detailsInfoTitle">Currencies: </span>
@@ -86,7 +86,18 @@ export default function CountryPage({}: Props) {
               <div className="borderCodesContainer">
                 {country.borders &&
                   country.borders.map((border) => (
-                    <div className="borderCountryCode" key={border}>
+                    <div
+                      className="borderCountryCode"
+                      key={border}
+                      onClick={() => {
+                        let found = countries.find(
+                          (c) => c.cca3 === border
+                        )?.cca3;
+                        if (found) {
+                          setSelectedId(found);
+                        }
+                      }}
+                    >
                       {countries.find((c) => c.cca3 === border)?.name.common}
                     </div>
                   ))}
