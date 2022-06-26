@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
 import { IoArrowBack } from "react-icons/io5";
-import { Link, To, useParams } from "react-router-dom";
 import { Country, CountryDetails } from "../../custom-types";
 import "../CountryPage.css";
 import { CountryContext } from "./countryContext";
@@ -8,33 +7,28 @@ type Props = {};
 
 export default function CountryPage({}: Props) {
   const [country, setCountry] = useState<CountryDetails | null>(null);
-  const { country_name } = useParams();
 
-  const { countries } = useContext(CountryContext);
+  const { countries, selectedId } = useContext(CountryContext);
 
-  async function fetchData() {
-    const res = await fetch(
-      `https://restcountries.com/v3.1/name/${country_name}`
-    );
-    const data = await res.json();
-    setCountry(data[0]);
-  }
   useEffect(() => {
-    fetchData();
-  }, [country_name]);
-
-  console.log(country);
+    if (selectedId) {
+      let found = countries.find((country) => country.cca3 === selectedId);
+      if (found) {
+        setCountry(found);
+      }
+    }
+  }, [selectedId]);
 
   return (
     <div className="countryPageContainer">
       <div className="backButtonContainer">
         <div className="backButton">
-          <Link to={-1 as To} className="backButtonLink">
+          <span className="backButtonLink">
             <span className="backIcon">
               <IoArrowBack fontSize={22} />
             </span>
             <span className="backText">Back</span>
-          </Link>
+          </span>
         </div>
       </div>
       {country && (

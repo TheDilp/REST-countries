@@ -1,13 +1,13 @@
 import React, { createContext, useEffect, useState } from "react";
-import { Country, Filter } from "../../custom-types";
+import { Country, CountryDetails, Filter } from "../../custom-types";
 
 type Props = {
   children: JSX.Element | JSX.Element[];
 };
 
 interface CountryContextProps {
-  countries: Country[];
-  setCountries: (countries: Country[]) => void;
+  countries: CountryDetails[];
+  setCountries: (countries: CountryDetails[]) => void;
   filter: Filter;
   setFilter: (filter: Filter) => void;
   search: string;
@@ -18,7 +18,7 @@ interface CountryContextProps {
 
 export const CountryContext = createContext<CountryContextProps>({
   countries: [],
-  setCountries: (countries: Country[]): void => {},
+  setCountries: (countries: CountryDetails[]): void => {},
   filter: {
     dropdown: false,
     region: "All",
@@ -30,7 +30,7 @@ export const CountryContext = createContext<CountryContextProps>({
   setSelectedId: (selectedId: string | null): void => {},
 });
 export default function CountryProvider({ children }: Props) {
-  const [countries, setCountries] = useState<Country[]>([]);
+  const [countries, setCountries] = useState<CountryDetails[]>([]);
   const [filter, setFilter] = useState<Filter>({
     dropdown: false,
     region: "All",
@@ -49,7 +49,7 @@ export default function CountryProvider({ children }: Props) {
   useEffect(() => {
     fetchData();
   }, []);
-  console.log("TEST");
+
   return (
     <CountryContext.Provider
       value={{

@@ -10,7 +10,6 @@ type Props = {
 
 export default function CardView({ darkMode }: Props) {
   const { countries, selectedId } = useContext(CountryContext);
-  console.log(countries);
   if (countries) {
     return !selectedId ? (
       <>

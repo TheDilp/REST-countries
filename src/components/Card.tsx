@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import { Country } from "../../custom-types";
+import { CountryContext } from "./countryContext";
 
 export default function Card({
   name,
@@ -6,10 +8,12 @@ export default function Card({
   capital,
   region,
   flags,
+  cca3,
 }: Country) {
+  const { setSelectedId } = useContext(CountryContext);
   return (
     <div className="cardContainer">
-      <span className="cardLink">
+      <span className="cardLink" onClick={() => setSelectedId(cca3)}>
         <div className="card">
           <div className="cardImg">
             <img src={flags.svg} alt={name.common} />
