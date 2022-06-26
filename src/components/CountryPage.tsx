@@ -1,13 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import { IoArrowBack } from "react-icons/io5";
-import { Country, CountryDetails } from "../../custom-types";
+import { CountryDetails } from "../../custom-types";
 import "../CountryPage.css";
 import { CountryContext } from "./countryContext";
 type Props = {};
 
 export default function CountryPage({}: Props) {
   const [country, setCountry] = useState<CountryDetails | null>(null);
-
   const { countries, selectedId, setSelectedId } = useContext(CountryContext);
 
   useEffect(() => {
@@ -22,8 +21,8 @@ export default function CountryPage({}: Props) {
   return (
     <div className="countryPageContainer">
       <div className="backButtonContainer">
-        <div className="backButton">
-          <span className="backButtonLink" onClick={() => setSelectedId(null)}>
+        <div className="backButton" onClick={() => setSelectedId(null)}>
+          <span className="backButtonLink">
             <span className="backIcon">
               <IoArrowBack fontSize={22} />
             </span>

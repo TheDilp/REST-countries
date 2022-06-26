@@ -190,6 +190,7 @@ body {
   overflow: hidden;
   text-decoration: none;
   transition: transform 0.15s ease-in-out;
+  cursor: pointer;
 
 }
 
