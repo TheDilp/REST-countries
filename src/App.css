@@ -16,8 +16,7 @@ body {
 
 .App {
   min-height: 100vh;
-  width: 100%;
-  /* background-image: url("./desktop-design-detail-light.jpg"); */
+  /* background-image: url("./mobile-design-home-light.jpg"); */
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -242,9 +241,98 @@ body {
   margin-right: 0.25rem;
 }
 
-@media screen and (min-width: 1441px) {
-  .allCardsContainer {
-    column-gap: 6.61rem;
 
+
+@media screen and (min-width: 375px) {
+
+  .titleBar {
+    padding: 0 1.25rem;
+  }
+
+
+  .inputContainer {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 1.25rem;
+
+  }
+
+  .inputContainer .searchWrapper {
+    /* display: flex; */
+    /* justify-content: center; */
+    box-sizing: border-box;
+    margin: 2rem 0;
+    width: 100%;
+  }
+
+  .inputContainer .searchWrapper .searchInput {
+    box-sizing: border-box;
+    /* margin-left: 0.75rem; */
+    width: 100%;
+  }
+
+  .allCardsContainer {
+    box-sizing: border-box;
+    max-width: 100%;
+    padding: 0 3rem;
+
+  }
+
+  .allCardsContainer .cardContainer {
+    width: 100%;
+  }
+
+}
+
+@media screen and (min-width: 750px) {
+  .allCardsContainer {
+    justify-content: center;
+    padding: 0 3rem;
+
+  }
+
+  .allCardsContainer .cardContainer {
+    width: 40%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+
+  .allCardsContainer .cardContainer {
+    width: 25%;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+
+  .titleBar {
+    padding: 0 5rem;
+  }
+
+
+  .inputContainer {
+    flex-wrap: nowrap;
+    padding: 3rem 5rem 0 5rem;
+
+  }
+
+  .inputContainer .searchWrapper {
+    box-sizing: border-box;
+    margin: 0rem 0;
+    width: 100%;
+  }
+
+  .inputContainer .searchWrapper .searchInput {
+    box-sizing: content-box;
+    width: 30.5%;
+  }
+
+  .allCardsContainer {
+    padding: 0 5rem;
+  }
+
+  .allCardsContainer .cardContainer {
+    width: 16.5rem !important;
   }
 }

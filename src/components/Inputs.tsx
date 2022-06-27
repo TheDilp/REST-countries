@@ -1,6 +1,5 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { IoChevronDown, IoSearch } from "react-icons/io5";
-import { Filter } from "../../custom-types";
 import { CountryContext } from "./countryContext";
 
 type Props = {
