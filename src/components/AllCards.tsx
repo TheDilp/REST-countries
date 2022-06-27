@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Country, Filter } from "../../custom-types";
 import Card from "./Card";
-import { CountryContext } from "./countryContext";
+import { CountryContext } from "./CountryContext";
 
 type Props = {};
 

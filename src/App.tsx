@@ -2,7 +2,7 @@ import { useState } from "react";
 import { IoMoon, IoMoonOutline } from "react-icons/io5";
 import "./App.css";
 import CardView from "./components/CardView";
-import CountryProvider from "./components/countryContext";
+import CountryProvider from "./components/CountryContext";
 function App() {
   const [darkMode, setDarkMode] = useState("light");
 

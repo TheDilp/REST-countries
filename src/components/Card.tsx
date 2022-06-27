@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Country } from "../../custom-types";
-import { CountryContext } from "./countryContext";
+import { CountryContext } from "./CountryContext";
 
 export default function Card({
   name,

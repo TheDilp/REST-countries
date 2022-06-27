@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { IoChevronDown, IoSearch } from "react-icons/io5";
-import { CountryContext } from "./countryContext";
+import { CountryContext } from "./CountryContext";
 
 type Props = {
   darkMode: string;

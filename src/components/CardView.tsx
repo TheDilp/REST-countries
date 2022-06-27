@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import AllCards from "./AllCards";
-import { CountryContext } from "./countryContext";
+import { CountryContext } from "./CountryContext";
 import CountryPage from "./CountryPage";
 import Inputs from "./Inputs";
 

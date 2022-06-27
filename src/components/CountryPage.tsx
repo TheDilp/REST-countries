@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { IoArrowBack } from "react-icons/io5";
 import { CountryDetails } from "../../custom-types";
 import "../CountryPage.css";
-import { CountryContext } from "./countryContext";
+import { CountryContext } from "./CountryContext";
 type Props = {};
 
 export default function CountryPage({}: Props) {
