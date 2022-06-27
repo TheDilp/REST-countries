@@ -132,7 +132,6 @@
     width: 58.5%;
     row-gap: 0;
     height: min-content;
-    /* row-gap: 5rem; */
 }
 
 .secondInfoColumn div {
@@ -160,13 +159,14 @@
     margin-left: 0.5rem;
 }
 
-.borderCountryCode {
-    font-size: 14px !important;
+.borderCountries .borderCountryCode {
+    font-size: 14px;
     background-color: white;
     box-shadow: 0 0 0.35rem rgb(211, 211, 211);
     padding: 0.2rem 1rem;
     cursor: pointer;
     max-width: 5rem;
+    text-align: center;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
@@ -175,7 +175,7 @@
 @media screen and (max-width: 750px) {
 
     .titleBar {
-        padding: 2rem 1.75rem;
+        padding: 2.5rem 1.75rem;
     }
 
     .titleBar .appTitle {
@@ -183,7 +183,7 @@
     }
 
     .backButtonContainer {
-        margin-top: 2.5rem;
+        margin-top: 1.5rem;
         padding-left: 1rem;
     }
 
@@ -220,6 +220,7 @@
     }
 
     .countryDetails {
+        width: 100%;
         flex-wrap: wrap;
     }
 
@@ -228,17 +229,52 @@
         font-size: 43px;
     }
 
+
+
     .countryDetails .detailsInfoColumn {
         padding-top: 1.25rem;
         width: 100%;
+        row-gap: 1.75rem;
     }
+
 
     .detailsInfoColumn div {
         font-size: 27px;
+    }
 
+    .detailsInfoColumn.secondInfoColumn {
+        margin-top: 2.5rem;
+        row-gap: 1rem;
+    }
+
+    .secondInfoColumn div {
+        padding-left: 0rem;
     }
 
     .countryDetails .detailsInfoColumn .detailsInfoTitle {
         font-size: 27px;
+    }
+
+    .borderCountries {
+        margin-top: 5rem;
+        flex-wrap: wrap;
+    }
+
+    .borderCountries .detailsInfoTitle {
+        width: 100%;
+        font-size: 30.5px;
+    }
+
+    .borderCountries .borderCodesContainer {
+        row-gap: 1rem;
+        margin-top: 2.25rem;
+        flex-wrap: wrap;
+    }
+
+    .borderCountries .borderCountryCode {
+        padding: 0.75rem 1rem;
+        min-width: 10rem;
+        text-align: center;
+        font-size: 24px;
     }
 }
