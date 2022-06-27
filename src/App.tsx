@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { IoMoonOutline } from "react-icons/io5";
+import { IoMoon, IoMoonOutline } from "react-icons/io5";
 import "./App.css";
 import CardView from "./components/CardView";
 import CountryProvider from "./components/countryContext";
@@ -18,7 +18,11 @@ function App() {
             }
           >
             <span className="darkModeIcon">
-              <IoMoonOutline size={16} fontWeight={600} />
+              {darkMode === "light" ? (
+                <IoMoonOutline fontWeight={600} />
+              ) : (
+                <IoMoon fontWeight={600} />
+              )}
             </span>
             <span>Dark Mode</span>
           </div>
