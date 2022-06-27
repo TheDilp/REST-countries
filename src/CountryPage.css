@@ -75,7 +75,6 @@
 .backButton .backText {
     color: hsl(200, 15%, 8%);
     font-weight: 600;
-    /* margin-left: 0.25rem; */
 }
 
 .detailsContainer {
@@ -171,4 +170,75 @@
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+}
+
+@media screen and (max-width: 750px) {
+
+    .titleBar {
+        padding: 2rem 1.75rem;
+    }
+
+    .titleBar .appTitle {
+        font-size: 1.75rem;
+    }
+
+    .backButtonContainer {
+        margin-top: 2.5rem;
+        padding-left: 1rem;
+    }
+
+    .countryPageContainer .backButtonContainer .backButton {
+        height: 4rem;
+        width: 13rem;
+        font-size: 28px;
+    }
+
+    .backButton .backButtonLink .backIcon {
+        font-size: 36px;
+    }
+
+    .countryPageContainer {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 3rem 2.5rem;
+        justify-content: center;
+
+    }
+
+    .detailsContainer {
+        margin-top: 3rem;
+        padding: 0 1rem;
+        flex-wrap: wrap;
+    }
+
+    .countryFlagContainer {
+
+        box-sizing: border-box;
+        width: 100%;
+        height: 28.5rem;
+        box-shadow: 0 0 0.35rem rgb(211, 211, 211);
+    }
+
+    .countryDetails {
+        flex-wrap: wrap;
+    }
+
+    .countryDetails h2 {
+        margin-top: 5.5rem;
+        font-size: 43px;
+    }
+
+    .countryDetails .detailsInfoColumn {
+        padding-top: 1.25rem;
+        width: 100%;
+    }
+
+    .detailsInfoColumn div {
+        font-size: 27px;
+
+    }
+
+    .countryDetails .detailsInfoColumn .detailsInfoTitle {
+        font-size: 27px;
+    }
 }

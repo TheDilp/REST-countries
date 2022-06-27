@@ -24,7 +24,7 @@ export default function CountryPage({}: Props) {
         <div className="backButton" onClick={() => setSelectedId(null)}>
           <span className="backButtonLink">
             <span className="backIcon">
-              <IoArrowBack fontSize={22} />
+              <IoArrowBack />
             </span>
             <span className="backText">Back</span>
           </span>
