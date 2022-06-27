@@ -57,7 +57,6 @@ body {
 }
 
 .contentContainer {
-  opacity: 0.5;
   display: flex;
   flex-wrap: wrap;
   width: 100%;
@@ -270,8 +269,6 @@ body {
   }
 
   .inputContainer .searchWrapper {
-    /* display: flex; */
-    /* justify-content: center; */
     box-sizing: border-box;
     margin: 2rem 0;
     width: 100%;
@@ -279,7 +276,6 @@ body {
 
   .inputContainer .searchWrapper .searchInput {
     box-sizing: border-box;
-    /* margin-left: 0.75rem; */
     width: 100%;
   }
 

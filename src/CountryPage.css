@@ -1,5 +1,5 @@
 #dark .backButton {
-    background-color: hsl(207, 26%, 17%);
+    background-color: hsl(209, 23%, 22%);
     box-shadow: 0 0 0.35rem black;
 
 }
@@ -18,8 +18,10 @@
 }
 
 #dark .borderCountryCode {
+    background-color: hsl(209, 23%, 22%);
+    ;
     box-shadow: 0 0 0.35rem rgb(32, 32, 32);
-    color: black;
+    color: white;
 
 }
 
