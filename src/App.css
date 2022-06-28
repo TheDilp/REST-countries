@@ -175,6 +175,7 @@ body {
 }
 
 .allCardsContainer .cardContainer .cardLink {
+  display: inline;
   color: var(--very-dark-blue-text);
   text-decoration: none;
 }

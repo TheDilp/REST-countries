@@ -13,7 +13,7 @@ export default function Card({
   const { setSelectedId } = useContext(CountryContext);
   return (
     <div className="cardContainer">
-      <span className="cardLink" onClick={() => setSelectedId(cca3)}>
+      <div className="cardLink" onClick={() => setSelectedId(cca3)}>
         <div className="card">
           <div className="cardImg">
             <img src={flags.svg} alt={name.common} />
@@ -38,7 +38,7 @@ export default function Card({
             </div>
           </div>
         </div>
-      </span>
+      </div>
     </div>
   );
 }

@@ -26,7 +26,6 @@ export default function Inputs({ darkMode }: Props) {
       <div className="selectWrapper input">
         <span
           className="regionFilter "
-          placeholder="Filter by Region"
           onClick={() => setFilter({ ...filter, dropdown: true })}
         >
           <div>
