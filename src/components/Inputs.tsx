@@ -24,7 +24,7 @@ export default function Inputs({ darkMode }: Props) {
         />
       </div>
       <div className="selectWrapper input">
-        <span
+        <div
           className="regionFilter "
           onClick={() => setFilter({ ...filter, dropdown: true })}
         >
@@ -34,7 +34,7 @@ export default function Inputs({ darkMode }: Props) {
           <div style={{}}>
             <IoChevronDown fontSize={14} fontWeight={600} />
           </div>
-        </span>
+        </div>
         {filter.dropdown && (
           <ul className="regionFilterOptions input">
             <li
