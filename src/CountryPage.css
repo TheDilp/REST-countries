@@ -160,6 +160,9 @@
     display: flex;
     column-gap: 0.5rem;
     margin-left: 0.5rem;
+    padding-bottom: 5rem;
+    flex-wrap: wrap;
+    row-gap: 0.25rem;
 }
 
 .borderCountries .borderCountryCode {
