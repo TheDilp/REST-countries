@@ -215,7 +215,7 @@ body {
   padding: 0 1.5rem;
 }
 
-.card .cardText h4 {
+.card .cardText h2 {
   font-family: var(--font-family);
   font-size: 18px;
   font-weight: 800;

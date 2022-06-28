@@ -19,7 +19,7 @@ export default function Card({
             <img src={flags.svg} alt={name.common} />
           </div>
           <div className="cardText">
-            <h4>{name.common}</h4>
+            <h2>{name.common}</h2>
             <div className="cardDetailsContainer">
               <div className="cardTextDetails">
                 <span className="detailTextTitle">Population:</span>
