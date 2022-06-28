@@ -174,16 +174,112 @@
     white-space: nowrap;
 }
 
-@media screen and (max-width: 750px) {
-
-    .titleBar {
-        padding: 2.5rem 1.75rem;
+@media screen and (min-width: 200px) and (max-width: 750px) {
+    .backButtonContainer {
+        margin-top: 0rem;
+        padding-left: 0rem;
     }
 
-    .titleBar .appTitle {
-        font-size: 1.75rem;
+    .countryPageContainer {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 0rem 1.75rem;
+        justify-content: center;
+        row-gap: 4rem;
+
     }
 
+    .countryPageContainer .backButtonContainer {
+        height: 4.5rem;
+    }
+
+    .countryPageContainer .backButtonContainer .backButton {
+        height: 2rem;
+        width: 6.5rem;
+        font-size: 14px;
+        margin-bottom: 0;
+    }
+
+    .backButton .backButtonLink .backIcon {
+        font-size: 18px;
+    }
+
+    .detailsContainer {
+        margin-top: 0rem;
+        padding: 0rem;
+        flex-wrap: wrap;
+    }
+
+    .countryFlagContainer {
+        box-sizing: border-box;
+        width: 100%;
+        height: 14.5rem;
+        box-shadow: 0 0 0.35rem rgb(211, 211, 211);
+    }
+
+    .countryDetails {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .countryDetails h2 {
+        margin-top: 2.5rem;
+        font-size: 22px;
+    }
+
+    .countryDetails .detailsInfoColumn {
+        padding-top: 0rem;
+        width: 100%;
+        row-gap: 0.75rem;
+    }
+
+
+    .detailsInfoColumn div {
+        font-size: 13px;
+    }
+
+    .detailsInfoColumn.secondInfoColumn {
+        margin-top: 1rem;
+        row-gap: 0.25rem;
+    }
+
+    .secondInfoColumn div {
+        padding-left: 0rem;
+    }
+
+    .countryDetails .detailsInfoColumn .detailsInfoTitle {
+        font-size: 13px;
+    }
+
+    .borderCountries {
+        margin-top: 2.75rem;
+        flex-wrap: wrap;
+    }
+
+    .borderCountries .detailsInfoTitle {
+        width: 100%;
+        font-size: 15px;
+    }
+
+    .borderCountries .borderCodesContainer {
+        row-gap: 1rem;
+        column-gap: 0.5rem;
+        margin-top: 0.25rem;
+        margin-left: 0;
+        flex-wrap: wrap;
+    }
+
+    .borderCountries .borderCountryCode {
+        margin-top: 0.85rem;
+        padding: 0.35rem 1rem;
+        min-width: 4rem;
+        text-align: center;
+        font-size: 12px;
+    }
+
+}
+
+@media screen and (min-width: 750px) and (max-width: 1339px) {
     .backButtonContainer {
         margin-top: 1.5rem;
         padding-left: 1rem;
@@ -230,8 +326,6 @@
         margin-top: 5.5rem;
         font-size: 43px;
     }
-
-
 
     .countryDetails .detailsInfoColumn {
         padding-top: 1.25rem;

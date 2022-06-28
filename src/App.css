@@ -57,6 +57,7 @@ body {
 }
 
 .contentContainer {
+  /* opacity: 0; */
   display: flex;
   flex-wrap: wrap;
   width: 100%;
@@ -76,7 +77,6 @@ body {
 }
 
 .titleBar .appTitle {
-  font-size: 1.5rem;
   color: var(--very-dark-blue-text)
 }
 
@@ -243,21 +243,26 @@ body {
 
 
 
-@media screen and (min-width: 375px) {
+@media screen and (min-width: 200px) {
 
   .titleBar {
-    padding: 0 1.25rem;
+    padding: 0rem 1rem;
+  }
+
+  #dark .titleBar .appTitle,
+  .titleBar .appTitle {
+    font-size: 14px;
   }
 
   .titleBar .darkMode {
     width: fit-content;
-    font-size: 24px;
+    font-size: 12px;
     margin-top: 0.5rem;
   }
 
   .titleBar .darkMode .darkModeIcon {
-    font-size: 31px;
-    margin-right: 1rem;
+    font-size: 14px;
+    margin-right: 0.5rem;
   }
 
   .inputContainer {
@@ -317,6 +322,24 @@ body {
     padding: 0 5rem;
   }
 
+  #dark .titleBar .appTitle,
+  .titleBar .appTitle {
+    font-size: 24px;
+    margin-top: 0.45rem;
+
+  }
+
+
+  .titleBar .darkMode {
+    width: fit-content;
+    font-size: 16px;
+    margin-top: 0rem;
+  }
+
+  .titleBar .darkMode .darkModeIcon {
+    font-size: 16px;
+    margin-right: 0.5rem;
+  }
 
   .inputContainer {
     flex-wrap: nowrap;
@@ -342,4 +365,5 @@ body {
   .allCardsContainer .cardContainer {
     width: 16.5rem !important;
   }
+
 }
