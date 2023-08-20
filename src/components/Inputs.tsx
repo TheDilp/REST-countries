@@ -7,7 +7,8 @@ type Props = {
 };
 
 export default function Inputs({ darkMode }: Props) {
-  const { filter, setFilter, search, setSearch } = useContext(CountryContext);
+  const { countries, filter, setFilter, search, setSearch } =
+    useContext(CountryContext);
 
   useEffect(() => {
     return () => {
@@ -26,6 +27,7 @@ export default function Inputs({ darkMode }: Props) {
           placeholder="Search for a country..."
           className="searchInput input"
           value={search}
+          disabled={countries?.length === 0}
           onChange={(e) => setSearch(e.target.value)}
         />
       </div>
