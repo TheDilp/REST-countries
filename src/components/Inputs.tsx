@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { IoChevronDown, IoSearch } from "react-icons/io5";
 import { CountryContext } from "./CountryContext";
 
@@ -8,6 +8,12 @@ type Props = {
 
 export default function Inputs({ darkMode }: Props) {
   const { filter, setFilter, search, setSearch } = useContext(CountryContext);
+
+  useEffect(() => {
+    return () => {
+      setFilter((prev) => ({ ...prev, dropdown: false }));
+    };
+  }, []);
 
   return (
     <div className="inputContainer">

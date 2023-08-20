@@ -1,5 +1,11 @@
-import React, { createContext, useEffect, useState } from "react";
-import { Country, CountryDetails, Filter } from "../../custom-types";
+import {
+  Dispatch,
+  SetStateAction,
+  createContext,
+  useEffect,
+  useState,
+} from "react";
+import { CountryDetails, Filter } from "../../custom-types";
 
 type Props = {
   children: JSX.Element | JSX.Element[];
@@ -7,28 +13,37 @@ type Props = {
 
 interface CountryContextProps {
   countries: CountryDetails[];
-  setCountries: (countries: CountryDetails[]) => void;
+  setCountries: Dispatch<SetStateAction<CountryDetails[]>> | (() => void);
   filter: Filter;
-  setFilter: (filter: Filter) => void;
+  setFilter: Dispatch<SetStateAction<Filter>> | (() => void);
   search: string;
-  setSearch: (search: string) => void;
+  setSearch: Dispatch<SetStateAction<string>> | (() => void);
   selectedId: string | null;
-  setSelectedId: (selectedId: string | null) => void;
+  setSelectedId: Dispatch<SetStateAction<string | null>> | (() => void);
 }
 
 export const CountryContext = createContext<CountryContextProps>({
   countries: [],
-  setCountries: (countries: CountryDetails[]): void => {},
+  setCountries: (): void => {},
   filter: {
     dropdown: false,
     region: "All",
   },
-  setFilter: (filter: Filter): void => {},
+  setFilter: (): void => {},
   search: "",
-  setSearch: (search: string): void => {},
+  setSearch: (): void => {},
   selectedId: null,
-  setSelectedId: (selectedId: string | null): void => {},
+  setSelectedId: (): void => {},
 });
+
+function fetchData(setCountries: Dispatch<SetStateAction<CountryDetails[]>>) {
+  fetch("https://restcountries.com/v3.1/all")
+    .then((res) => res.json())
+    .then((data) => {
+      setCountries(data);
+    });
+}
+
 export default function CountryProvider({ children }: Props) {
   const [countries, setCountries] = useState<CountryDetails[]>([]);
   const [filter, setFilter] = useState<Filter>({
@@ -38,16 +53,8 @@ export default function CountryProvider({ children }: Props) {
   const [search, setSearch] = useState<string>("");
   const [selectedId, setSelectedId] = useState<null | string>(null);
 
-  function fetchData() {
-    fetch("https://restcountries.com/v3.1/all")
-      .then((res) => res.json())
-      .then((data) => {
-        setCountries(data);
-      });
-  }
-
   useEffect(() => {
-    fetchData();
+    fetchData(setCountries);
   }, []);
 
   return (

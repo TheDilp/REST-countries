@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from "react";
-import { Country, CountryDetails, Filter } from "../../custom-types";
+import { Country, CountryDetails } from "../../custom-types";
 import Card from "./Card";
 import { CountryContext } from "./CountryContext";
+import SkeletonCard from "./SkeletonCard";
 
-type Props = {};
-
-export default function AllCards({}: Props) {
+const skeletonCards = [...Array(16).keys()];
+export default function AllCards() {
   const { countries, filter, search } = useContext(CountryContext);
 
   const [filteredCountries, setFilteredCountries] = useState<CountryDetails[]>(
@@ -13,6 +13,7 @@ export default function AllCards({}: Props) {
   );
 
   useEffect(() => {
+    // Debounce search
     const timeout = setTimeout(() => {
       setFilteredCountries(
         countries
@@ -25,24 +26,26 @@ export default function AllCards({}: Props) {
               : true
           )
       );
-    }, 250);
+    }, 350);
     return () => clearTimeout(timeout);
-  }, [countries, search]);
+  }, [countries, search, filter]);
 
   return (
     <div className="allCardsContainer">
-      {filteredCountries.map((country: Country) => (
-        <Card
-          key={country.cca3}
-          name={country.name}
-          region={country.region}
-          population={country.population}
-          capital={country.capital}
-          flags={country.flags}
-          fifa={country.fifa}
-          cca3={country.cca3}
-        />
-      ))}
+      {countries?.length
+        ? filteredCountries.map((country: Country) => (
+            <Card
+              key={country.cca3}
+              name={country.name}
+              region={country.region}
+              population={country.population}
+              capital={country.capital}
+              flags={country.flags}
+              fifa={country.fifa}
+              cca3={country.cca3}
+            />
+          ))
+        : skeletonCards.map((card) => <SkeletonCard key={card} />)}
     </div>
   );
 }
